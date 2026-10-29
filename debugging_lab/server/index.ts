@@ -12,6 +12,9 @@ function loadLeaderboard(): LeaderboardEntry[] {
 		return [];
 	}
 	const text = readFileSync(LEADERBOARD_FILE, "utf8");
+	if (text.trim() === "") {
+		return [];
+	}
 	return JSON.parse(text) as LeaderboardEntry[];
 }
 
